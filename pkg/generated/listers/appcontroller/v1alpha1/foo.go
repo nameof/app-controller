@@ -21,8 +21,8 @@ package v1alpha1
 import (
 	"k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/labels"
+	v1alpha1 "k8s.io/app-controller/pkg/apis/appcontroller/v1alpha1"
 	"k8s.io/client-go/tools/cache"
-	v1alpha1 "k8s.io/sample-controller/pkg/apis/samplecontroller/v1alpha1"
 )
 
 // FooLister helps list Foos.

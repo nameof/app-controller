@@ -29,8 +29,8 @@ CODEGEN_PKG=${CODEGEN_PKG:-$(cd "${SCRIPT_ROOT}"; ls -d -1 ./vendor/k8s.io/code-
 # 1. ./pkg/apis/appcontroller/v1alpha1/zz_generated.deepcopy.go
 # 2. everything under ./pkg/apis/generated
 bash "${CODEGEN_PKG}"/generate-groups.sh "deepcopy,client,informer,lister" \
-  k8s.io/sample-controller/pkg/generated k8s.io/sample-controller/pkg/apis \
-  samplecontroller:v1alpha1 \
+  k8s.io/app-controller/pkg/generated k8s.io/app-controller/pkg/apis \
+  appcontroller:v1alpha1 \
   --output-base "$(dirname "${BASH_SOURCE[0]}")/../../.." \
   --go-header-file "${SCRIPT_ROOT}"/hack/boilerplate.go.txt
 
@@ -39,9 +39,9 @@ bash "${CODEGEN_PKG}"/generate-groups.sh "deepcopy,client,informer,lister" \
 # 1. removes existing auto-generated files
 # 2. copies over the auto-generated files from the output_base to pkg/apis and pkg/generated
 # 3. removes output_base
-rm -R ./pkg/apis/samplecontroller/v1alpha1/zz_generated.deepcopy.go ./pkg/generated -f
-mv "$(dirname "${BASH_SOURCE[0]}")/../../../k8s.io/sample-controller/pkg/apis/samplecontroller/v1alpha1/zz_generated.deepcopy.go" $SCRIPT_ROOT/pkg/apis/samplecontroller/v1alpha1 -f
-mv "$(dirname "${BASH_SOURCE[0]}")/../../../k8s.io/sample-controller/pkg/generated" $SCRIPT_ROOT/pkg
+rm -R ./pkg/apis/appcontroller/v1alpha1/zz_generated.deepcopy.go ./pkg/generated -f
+mv "$(dirname "${BASH_SOURCE[0]}")/../../../k8s.io/app-controller/pkg/apis/appcontroller/v1alpha1/zz_generated.deepcopy.go" $SCRIPT_ROOT/pkg/apis/appcontroller/v1alpha1 -f
+mv "$(dirname "${BASH_SOURCE[0]}")/../../../k8s.io/app-controller/pkg/generated" $SCRIPT_ROOT/pkg
 rm -R "$(dirname "${BASH_SOURCE[0]}")/../../../k8s.io"
 
 # To use your own boilerplate text append:

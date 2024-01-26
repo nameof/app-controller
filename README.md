@@ -162,7 +162,7 @@ The [group](https://kubernetes.io/docs/reference/using-api/#api-groups) version 
 
 You can clean up the created CustomResourceDefinition with:
 ```sh
-kubectl delete crd foos.samplecontroller.k8s.io
+kubectl delete crd foos.appcontroller.k8s.io
 ```
 
 ## Compatibility
